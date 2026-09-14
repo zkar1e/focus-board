@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Focus Board</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>Focus Board</h1>
+      <p class="subtitle">A timer and a task list that stay out of your way.</p>
+    </header>
+
+    <main class="layout">
+      <!-- Timer -->
+      <section class="card timer-card">
+        <div class="mode-switch" role="tablist">
+          <button class="mode-btn active" data-mode="focus">Focus</button>
+          <button class="mode-btn" data-mode="short">Short Break</button>
+          <button class="mode-btn" data-mode="long">Long Break</button>
+        </div>
+
+        <div class="focus-label" id="focusLabel">No task selected</div>
+
+        <div class="timer-display">
+          <svg class="ring" width="240" height="240" viewBox="0 0 240 240">
+            <circle class="ring-bg" cx="120" cy="120" r="110" />
+            <circle class="ring-progress" id="ringProgress" cx="120" cy="120" r="110" />
+          </svg>
+          <div class="time-text" id="timeText">25:00</div>
+        </div>
+
+        <div class="timer-controls">
+          <button id="startPauseBtn" class="btn primary">Start</button>
+          <button id="resetBtn" class="btn">Reset</button>
+        </div>
+
+        <div class="session-info">
+          <span id="sessionCount">0</span> focus sessions completed today
+        </div>
+      </section>
+
+      <!-- Task board -->
+      <section class="card board-card">
+        <h2>Tasks</h2>
+        <form id="taskForm" class="task-form">
+          <input type="text" id="taskInput" placeholder="Add a task…" autocomplete="off" />
+          <button type="submit" class="btn primary">Add</button>
+        </form>
+
+        <div class="task-columns">
+          <div class="task-column" data-status="todo">
+            <h3>To Do</h3>
+            <ul class="task-list" id="todoList"></ul>
+          </div>
+          <div class="task-column" data-status="doing">
+            <h3>Doing</h3>
+            <ul class="task-list" id="doingList"></ul>
+          </div>
+          <div class="task-column" data-status="done">
+            <h3>Done</h3>
+            <ul class="task-list" id="doneList"></ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
